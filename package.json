@@ -1,0 +1,11 @@
+{
+  "name": "belenios-to-vota",
+  "version": "1.0.0",
+  "description": "Converts election results from Belenios to results processable by Vota",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Faschinger <michivo@gmail.com>",
+  "license": "MIT"
+}
