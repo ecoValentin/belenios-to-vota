@@ -28,15 +28,29 @@ fs.readFile(process.argv[2], 'utf8', (resultError, results) => {
             .map(v => parseInt(v))
             .sort((a, b) => a - b);
 
-        values.every((value, idx) => {
-           if(idx + 1 !== value) {
-               console.log('\x1b[43m\x1b[30mInvalid line found:\x1b[0m\t' + line);
-               invalidCount++;
-               return false;
-           }
+        if(values.length === 0) {
+            return;
+        }
+
+        let valCount = 0;
+
+        if(values.every((value, idx) => {
+            valCount++;
+            if(idx + 1 !== value) {
+                console.log('\x1b[43m\x1b[30mInvalid sequence found:\x1b[0m\t' + line);
+                invalidCount++;
+                return false;
+            }
 
            return true;
-        });
+        })) {
+            if(valCount < minCount || valCount > maxCount) {
+                invalidCount++;
+                console.log('\x1b[43m\x1b[30mInvalid  count   found:\x1b[0m\t' + line);
+            }
+        }
+
+
     });
 
     if(invalidCount) {
