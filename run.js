@@ -62,7 +62,12 @@ function parseCandidates(candidates) {
         return JSON.parse(candidates);
     } catch (err) {
         let candidatesData = [];
-        candidatesLines = candidates.split('\r\n');
+	if (candidates.search('\r\n')){
+	    candidatesLines = candidates.split('\r\n');
+	}
+	else{
+	    candidatesLines = candidates.split('\n');
+	}
         candidatesLines.forEach(line => {
             const semicolonIdx = line.indexOf(';');
             candidatesData.push(line.substr(0, semicolonIdx));

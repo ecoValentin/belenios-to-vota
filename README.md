@@ -21,3 +21,15 @@ You can find sample files for all of the files in this repository. You may also 
 
 # Important
 **Please make sure that the order of candidates in the canidates.csv file is the same as the order of candidates on the ballots in Belenios! Belenios does not include the candidate names in the output!**
+
+
+# Quick execution under Linux [Requires Vota on the same machine]
+ * Edit candidates.csv file
+   * Females get a 1 in the second column 
+ * Edit input file
+   * Paste votes from belenios
+ * run exec.sh
+   * sh exec.sh [ElectionType] [number of seats]
+ * Candidates are presented on the terminal 
+ * A tar archive of all election data is created in the current directory
+
